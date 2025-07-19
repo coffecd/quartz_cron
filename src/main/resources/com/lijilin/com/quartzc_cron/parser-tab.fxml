@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.lijilin.com.quartzc_cron.ParserController"
+      spacing="10" alignment="TOP_CENTER">
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
+
+    <HBox spacing="10" alignment="CENTER">
+        <Label text="Cron表达式:" />
+        <TextField fx:id="cronExpressionField" prefWidth="400" />
+        <Button fx:id="parseButton" text="解析" onAction="#onParseButtonClick" />
+    </HBox>
+
+    <Label text="表达式说明:" />
+    <TextArea fx:id="cronExplanationArea" editable="false" prefHeight="100" wrapText="true" />
+
+    <Label text="最近10次执行时间:" />
+    <TableView fx:id="nextFireTimesTable" prefHeight="300">
+        <columns>
+            <TableColumn fx:id="indexColumn" text="#" prefWidth="50" />
+            <TableColumn fx:id="dateTimeColumn" text="日期时间" prefWidth="200" />
+            <TableColumn fx:id="formattedColumn" text="格式化时间" prefWidth="300" />
+        </columns>
+    </TableView>
+</VBox>

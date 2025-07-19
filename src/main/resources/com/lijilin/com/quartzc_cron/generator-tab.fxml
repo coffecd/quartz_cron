@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.lijilin.com.quartzc_cron.GeneratorController"
+      spacing="10" alignment="TOP_CENTER">
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
+
+    <GridPane hgap="10" vgap="10">
+        <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="100" prefWidth="150" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="100" prefWidth="150" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="100" prefWidth="150" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="100" prefWidth="150" />
+        </columnConstraints>
+
+        <!-- 时间单位标题 -->
+        <Label text="时间单位" GridPane.columnIndex="0" GridPane.rowIndex="0" 
+               style="-fx-font-weight: bold; -fx-font-size: 14px;" />
+        <Label text="选择方式" GridPane.columnIndex="1" GridPane.rowIndex="0" 
+               style="-fx-font-weight: bold; -fx-font-size: 14px;" />
+        <Label text="参数设置" GridPane.columnIndex="2" GridPane.rowIndex="0" 
+               style="-fx-font-weight: bold; -fx-font-size: 14px;" GridPane.columnSpan="2" />
+               
+        <!-- 秒 -->
+        <Label text="秒 (Second):" GridPane.columnIndex="0" GridPane.rowIndex="1" 
+               style="-fx-font-weight: bold; -fx-text-fill: #0066cc;" />
+        <ComboBox fx:id="secondComboBox" prefWidth="150" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+        <Label text="具体值:" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+        <TextField fx:id="secondTextField" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+
+        <!-- 分 -->
+        <Label text="分 (Minute):" GridPane.columnIndex="0" GridPane.rowIndex="2" 
+               style="-fx-font-weight: bold; -fx-text-fill: #0066cc;" />
+        <ComboBox fx:id="minuteComboBox" prefWidth="150" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+        <Label text="具体值:" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+        <TextField fx:id="minuteTextField" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+
+        <!-- 时 -->
+        <Label text="时 (Hour):" GridPane.columnIndex="0" GridPane.rowIndex="3" 
+               style="-fx-font-weight: bold; -fx-text-fill: #0066cc;" />
+        <ComboBox fx:id="hourComboBox" prefWidth="150" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+        <Label text="具体值:" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+        <TextField fx:id="hourTextField" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+
+        <!-- 日 -->
+        <Label text="日 (Day):" GridPane.columnIndex="0" GridPane.rowIndex="4" 
+               style="-fx-font-weight: bold; -fx-text-fill: #006600;" />
+        <ComboBox fx:id="dayComboBox" prefWidth="150" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+        <Label text="具体值:" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+        <TextField fx:id="dayTextField" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+
+        <!-- 月 -->
+        <Label text="月 (Month):" GridPane.columnIndex="0" GridPane.rowIndex="5" 
+               style="-fx-font-weight: bold; -fx-text-fill: #006600;" />
+        <ComboBox fx:id="monthComboBox" prefWidth="150" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+        <Label text="具体值:" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+        <TextField fx:id="monthTextField" GridPane.columnIndex="3" GridPane.rowIndex="5" />
+
+        <!-- 周 -->
+        <Label text="周 (Week):" GridPane.columnIndex="0" GridPane.rowIndex="6" 
+               style="-fx-font-weight: bold; -fx-text-fill: #006600;" />
+        <ComboBox fx:id="weekComboBox" prefWidth="150" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+        <Label text="具体值:" GridPane.columnIndex="2" GridPane.rowIndex="6" />
+        <TextField fx:id="weekTextField" GridPane.columnIndex="3" GridPane.rowIndex="6" />
+
+        <!-- 年 -->
+        <Label text="年 (Year):" GridPane.columnIndex="0" GridPane.rowIndex="7" 
+               style="-fx-font-weight: bold; -fx-text-fill: #990000;" />
+        <ComboBox fx:id="yearComboBox" prefWidth="150" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+        <Label text="具体值:" GridPane.columnIndex="2" GridPane.rowIndex="7" />
+        <TextField fx:id="yearTextField" GridPane.columnIndex="3" GridPane.rowIndex="7" />
+    </GridPane>
+
+    <!-- Cron表达式格式说明 -->
+    <HBox alignment="CENTER" style="-fx-background-color: #f0f0f0; -fx-padding: 10;">
+        <VBox alignment="CENTER">
+            <Label style="-fx-font-weight: bold;" text="Cron表达式格式" />
+            <Label text="秒 分 时 日 月 周 [年]" style="-fx-font-style: italic;" />
+            <HBox spacing="5" alignment="CENTER">
+                <Label style="-fx-text-fill: #0066cc; -fx-font-weight: bold;" text="秒分时" />
+                <Label text="|" />
+                <Label style="-fx-text-fill: #006600; -fx-font-weight: bold;" text="日月周" />
+                <Label text="|" />
+                <Label style="-fx-text-fill: #990000; -fx-font-weight: bold;" text="年(可选)" />
+            </HBox>
+        </VBox>
+    </HBox>
+
+    <HBox spacing="10" alignment="CENTER">
+        <padding>
+            <Insets top="10" right="10" bottom="10" left="10"/>
+        </padding>
+        <Button fx:id="generateButton" text="生成表达式" onAction="#onGenerateButtonClick" 
+                style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-font-weight: bold;" />
+        <Button fx:id="parseButton" text="解析表达式" onAction="#onParseButtonClick" 
+                style="-fx-background-color: #2196F3; -fx-text-fill: white; -fx-font-weight: bold;" />
+        <Button fx:id="copyButton" text="复制表达式" onAction="#onCopyButtonClick" 
+                style="-fx-background-color: #FF9800; -fx-text-fill: white; -fx-font-weight: bold;" />
+    </HBox>
+
+    <Label text="Cron表达式:" style="-fx-font-weight: bold; -fx-font-size: 14px;" />
+    <TextField fx:id="cronExpressionField" editable="true" />
+
+    <Label text="表达式说明:" />
+    <TextArea fx:id="cronExplanationArea" editable="false" prefHeight="100" wrapText="true" />
+</VBox>

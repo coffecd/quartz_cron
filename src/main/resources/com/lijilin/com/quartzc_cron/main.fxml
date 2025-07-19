@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.lijilin.com.quartzc_cron.MainController"
+      prefHeight="600.0" prefWidth="800.0">
+    <TabPane fx:id="tabPane" tabClosingPolicy="UNAVAILABLE" VBox.vgrow="ALWAYS">
+        <Tab text="Cron生成器" fx:id="generatorTab">
+            <fx:include source="generator-tab.fxml"/>
+        </Tab>
+        <Tab text="Cron解析器" fx:id="parserTab">
+            <fx:include source="parser-tab.fxml"/>
+        </Tab>
+    </TabPane>
+</VBox>
