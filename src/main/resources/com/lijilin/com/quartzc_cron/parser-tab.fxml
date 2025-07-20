@@ -35,13 +35,14 @@
     <!-- 表达式说明区域 -->
     <Label text="表达式说明:" 
            style="-fx-font-weight: bold; -fx-text-fill: #2c3e50; -fx-font-size: 14px;" />
-    <TextArea fx:id="cronExplanationArea" editable="false" prefHeight="100" wrapText="true" 
+    <TextArea fx:id="cronExplanationArea" editable="false" wrapText="true" VBox.vgrow="ALWAYS"
+              minHeight="100" maxHeight="200"
               style="-fx-background-color: #f1f8ff; -fx-border-color: #b8daff; -fx-border-radius: 5; -fx-background-radius: 5;" />
 
     <!-- 执行时间表格区域 -->
     <Label text="未来10次执行时间:" 
            style="-fx-font-weight: bold; -fx-text-fill: #2c3e50; -fx-font-size: 14px;" />
-    <TableView fx:id="nextFireTimesTable" prefHeight="300">
+    <TableView fx:id="nextFireTimesTable" VBox.vgrow="ALWAYS" minHeight="300">
         <columns>
             <TableColumn fx:id="indexColumn" text="序号" />
             <TableColumn fx:id="dateTimeColumn" text="日期时间" />

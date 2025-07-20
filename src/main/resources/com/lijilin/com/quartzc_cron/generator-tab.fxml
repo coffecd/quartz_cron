@@ -7,7 +7,8 @@
 <VBox xmlns="http://javafx.com/javafx"
       xmlns:fx="http://javafx.com/fxml"
       fx:controller="com.lijilin.com.quartzc_cron.GeneratorController"
-      spacing="10" alignment="TOP_CENTER">
+      spacing="10" alignment="TOP_CENTER"
+      style="-fx-background-color: #f8f9fa;">
     <padding>
         <Insets top="20" right="20" bottom="20" left="20"/>
     </padding>
@@ -109,5 +110,6 @@
     <TextField fx:id="cronExpressionField" editable="true" />
 
     <Label text="表达式说明:" />
-    <TextArea fx:id="cronExplanationArea" editable="false" prefHeight="100" wrapText="true" />
+    <TextArea fx:id="cronExplanationArea" editable="false" prefHeight="100" minHeight="100" maxHeight="300" VBox.vgrow="ALWAYS" wrapText="true" 
+              style="-fx-background-color: #f1f8ff; -fx-border-color: #b8daff; -fx-border-radius: 5; -fx-background-radius: 5;" />
 </VBox>
